@@ -1,0 +1,22 @@
+name: black-formatting
+on:
+  push:
+    branches:
+      - main
+    pull_request:
+
+jobs:
+  black-formatting:
+    name: black-formatting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Install dependencies
+        run: pip install black==24.10.0
+      - name:
+        run: black . --check
+
+

@@ -1,0 +1,21 @@
+name: mypy-type-check
+on:
+  push:
+    branches:
+      - main
+    pull_request:
+
+jobs:
+  black-formatting:
+    name: black-formatting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name:
+        run: mypy . --strict
+
