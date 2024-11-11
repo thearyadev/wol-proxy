@@ -28,4 +28,4 @@ jobs:
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: npx semantic-release --plugins ['@semantic-release/commit-analyzer', '@semantic-release/release-notes-generator', '@semantic-release/github']
+        run: npx semantic-release -p '@semantic-release/commit-analyzer' -p '@semantic-release/release-notes-generator' -p '@semantic-release/github'
