@@ -12,7 +12,7 @@ this tool replaces that and easily integrates using a traefik ingress handler.
 ```yaml
 
 services:
-    wol_proxy
+    wol_proxy:
         image: thearyadev0/wol-proxy:latest # or version tag
         environment:
             PROXY_URL: "http://192.168.1.11:11434" # proxy target
