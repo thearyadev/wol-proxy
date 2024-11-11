@@ -17,7 +17,7 @@ if not all((PROXY_TARGET, WOL_MAC, WOL_INT, TIMEOUT)):
     raise Exception("Environ (one of) [PROXY_URL, WOL_MAC, WOL_INT] is not set.")
 
 
-def run_etherwake():
+def run_etherwake() -> None:
     subprocess.run(["etherwake", "-i", WOL_INT, WOL_MAC])
 
 
