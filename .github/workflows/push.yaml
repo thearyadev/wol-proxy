@@ -30,4 +30,4 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: thearyadev0/wol=proxy:latest,thearyadev0/muze:${{ env.CLEAN_TAG_NAME }}
+          tags: thearyadev0/wol-proxy:latest,thearyadev0/wol-proxy:${{ env.CLEAN_TAG_NAME }}
