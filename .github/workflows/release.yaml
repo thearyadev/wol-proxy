@@ -15,6 +15,10 @@ jobs:
       pull-requests: write # to be able to comment on released pull requests
       id-token: write # to enable use of OIDC for npm provenance
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: Python Semantic Release
         uses: python-semantic-release/python-semantic-release@v9.14.0
       # - name: Checkout
