@@ -1,0 +1,11 @@
+services:
+    wol_proxy:
+        image: thearyadev0/wol-proxy:latest # or version tag
+        network_mode: host # required for WOL.
+        environment:
+            PROXY_URL: "http://192.168.1.11:11434" # proxy target
+            WOL_INT: ens18 # host interface to send wol
+            WOL_MAC: B4:2E:99:4D:5C:B4 # target machine mac
+            GET_CACHE: "False" # Optional: GET requests will be cached
+            GET_CACHE_INVALIDATE_SECONDS: "1800" # Optional: Time to invalidate get cache in seconds
+            TIMEOUT: "30" # Optional: default is 30. Time in seconds to wait for a request to resolve (computer may be turning on)
