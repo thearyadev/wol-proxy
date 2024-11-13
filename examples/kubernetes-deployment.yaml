@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wol-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wol-proxy
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: wol-proxy
+    spec:
+      hostNetwork: true # required for wol.
+      containers:
+        - image: thearyadev0/wol-proxy:1.1.0
+          env:
+            - name: PROXY_URL  # proxy target
+              value: "http://192.168.1.11:11434"
+            - name: WOL_MAC  # target machine mac
+              value: B4:2E:99:4D:5C:B4
+            - name: WOL_INT # host interface to send wol
+              value: ens18
+            - name: GET_CACHE # Optional: GET requests will be cached
+              value: "True"
+            - name: GET_CACHE_INVALIDATE_SECONDS # Optional: Time to invalidate get cache in seconds
+              value: "1800"
+            - name: TIMEOUT # Optional: default is 30. Time in seconds to wait for a request to resolve (computer may be turning on)
+              value: "30" 
+          name: wol-proxy
+          ports:
+            - containerPort: 8000 # Not required if you want to use the host port. Service object preferred.
+          resources: {}
+status: {}
