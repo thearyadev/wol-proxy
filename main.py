@@ -64,7 +64,7 @@ async def get(request: Request) -> Response:
             logger.info(f"[PROXY] {request.url.path} was cached, and is now invalid.")
         else:
             logger.info(
-                f"[PROXY] {request.url.path} is cached until {cached_response_content[1].strftime("%Y-%m-%dT%H:%M:%S")}"
+                f"[PROXY] {request.url.path} is cached until {cached_response_content[1].strftime('%Y-%m-%dT%H:%M:%S')}"
             )
             return Response(
                 content=cached_response_content[0], media_type="application/json"
